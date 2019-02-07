@@ -13,7 +13,7 @@ Clone the repository to where you'd like (in the example I use the home folder ~
     
     
     cd ~
-    git clone https://github.com/billyprice1/cloud9-vnc.git
+    git clone https://github.com/shreyaskishore/cloud9-vnc.git
     
 
 Enter the repository sub-directory
@@ -59,4 +59,4 @@ Run the start script symlinked into your /usr/local/bin
     No arguments will try to start daemon process
     
     
-    This Project Is no longer worked on
+Forked from billyprice1/cloud9-vnc

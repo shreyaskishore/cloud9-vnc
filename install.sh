@@ -42,7 +42,7 @@ echo
 #Copy supervisord configuration to proper configuration directory
 echo "Configuring supervisord..."
 echo
-
+mkdir -p ${HOME}/.config/
 cp supervisord.conf ${HOME}/.config/supervisord.conf
 
 #Make sure that the runners folder exists
