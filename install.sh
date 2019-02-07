@@ -19,15 +19,8 @@ fi
 
 declare -a NEEDED_SOFTWARE_LIST=(supervisord xvfb-run fluxbox x11vnc websockify)
 for SOFTWARE in ${NEEDED_SOFTWARE_LIST[@]} ; do
-    
     $SOFTWARE --version |& grep "command not found" && (
-        read -p "Missing $SOFTWARE, do you want to install it? [Y/n] " yn
-        case $yn in
-            [Yy]* ) install_prerequisites; break;;
-            [Nn]* ) break;;
-            * ) install_prerequisites;;
-        esac
-        break;
+        install_prerequisites;
       );
 done
 
@@ -42,17 +35,17 @@ echo
 #Copy supervisord configuration to proper configuration directory
 echo "Configuring supervisord..."
 echo
-mkdir -p ${HOME}/.config/
-cp supervisord.conf ${HOME}/.config/supervisord.conf
+mkdir -p /home/ubuntu/.config/
+cp supervisord.conf /home/ubuntu/.config/supervisord.conf
 
 #Make sure that the runners folder exists
 echo "Installing C9 runner..."
 echo
 
-mkdir -p ${HOME}/workspace/.c9/runners
+mkdir -p /home/ubuntu/workspace/.c9/runners
 
 #Copy the C9 runner to the C9 watch folder
-\cp c9vnc.run ${HOME}/workspace/.c9/runners/c9vnc.run
+\cp c9vnc.run /home/ubuntu/workspace/.c9/runners/c9vnc.run
 
 #Create the proper directory for the script
 echo "Install run script..."
