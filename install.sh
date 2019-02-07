@@ -80,16 +80,4 @@ echo export XDG_RUNTIME_DIR=/tmp/C9VNC >> ~/.bashrc
 echo export DISPLAY=:99.0 >> ~/.bashrc
 source ~/.bashrc
 
-#Set up password for x11vnc
-#Sets password from ~/.vnc/passwd
-#When running x11vnc, do x11vnc -usepw
-    # Hacky security flaw where I allow read access to ~/.vnc/passwd to group and other
-    # This is done so you don't have to run x11vnc as root (which causes all sorts of trouble)
-while true; do
-    read -p "Do you wish to set password for x11vnc? (not recommended for public workspaces!) " yn
-    case $yn in
-        [Yy]* ) sudo x11vnc -storepasswd ; sed -i -e 's/command=x11vnc/command=x11vnc -usepw/g' ${HOME}/.config/supervisord.conf ; sudo chmod go+r ~/.vnc/passwd ; break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+# sudo x11vnc -storepasswd ; sed -i -e 's/command=x11vnc/command=x11vnc -usepw/g' ${HOME}/.config/supervisord.conf ; sudo chmod go+r ~/.vnc/passwd 
